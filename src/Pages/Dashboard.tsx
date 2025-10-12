@@ -1,3 +1,7 @@
+import { CurrentWeather } from "@/components/customComponents/CurrentWeather";
+import { HourlyTemperature } from "@/components/customComponents/HourlyTemperature";
+import { WeatherDetails } from "@/components/customComponents/WeatherDetails";
+import { WeatherForecast } from "@/components/customComponents/WeatherForecast";
 import WeatherSkeleton from "@/components/customComponents/WeatherSkeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -90,6 +94,7 @@ export function Component() {
 
   return (
     <div className='space-y-4'>
+      {/* <FavoriteCities /> */}
       <div className='flex items-center justify-between'>
         <h1 className='text-xl font-bold tracking-tight'>My Location</h1>
         <Button
@@ -108,10 +113,17 @@ export function Component() {
 
       <div className='grid gap-6'>
         <div className='flex flex-col lg:flex-row gap-4'>
-          {"current weather"}
+          <CurrentWeather
+            data={weatherQuery.data}
+            locationName={locationName}
+          />
+          <HourlyTemperature data={forecastQuery.data} />
         </div>
 
-        <div className='grid gap-6 md:grid-cols-2 items-start'>{"details"}</div>
+        <div className='grid gap-6 md:grid-cols-2 items-start'>
+          <WeatherDetails data={weatherQuery.data} />
+          <WeatherForecast data={forecastQuery.data} />
+        </div>
       </div>
     </div>
   );
