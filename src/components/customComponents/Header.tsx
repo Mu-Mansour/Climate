@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png";
 import logo2 from "../../assets/logo2.png";
 import { useTheme } from "@/context/theme-provider";
 import { ThemeToggle } from "./ThemeToggle";
+import { CitySearch } from "./CitySearch";
 
 export function Header() {
   const { theme } = useTheme();
@@ -19,6 +20,7 @@ export function Header() {
         </Link>
 
         <div className='flex gap-4'>
+          <CitySearch />
           <ThemeToggle />
         </div>
       </div>
