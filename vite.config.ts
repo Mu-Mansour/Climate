@@ -11,4 +11,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  //for now
+  server: {
+    proxy: {
+      "/api-weather": {
+        target: "https://api.openweathermap.org",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api-weather/, ""),
+      },
+    },
+  },
 });
