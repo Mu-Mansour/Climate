@@ -9,10 +9,11 @@ interface ApiOptions {
 
 export class DynamicAPI {
   private BASE_API_CONFIG = {
-    BASE_URL: "https://api.openweathermap.org/data/2.5",
+    // BASE_URL: "https://api.openweathermap.org/data/2.5",for now
+    BASE_URL: "/api-weather/data/2.5",
     DEFAULT_PARAMS: {
       units: "metric",
-      appid: import.meta.env.WEATHER_API_KEY,
+      appid: import.meta.env.VITE_WEATHER_API_KEY,
     },
   };
   private createUrl(endpoint: string, options: ApiOptions = {}): string {
@@ -22,7 +23,11 @@ export class DynamicAPI {
       ...params,
     };
     const searchParams = new URLSearchParams(effectiveParams);
-    return `${baseUrl}${endpoint}?${searchParams.toString()}`;
+    const cleanBase = baseUrl.replace(/\/+$/, "");
+    const cleanEndpoint = endpoint.replace(/^\/+/, "");
+    // return `${baseUrl}${endpoint}?${searchParams.toString()}`; for now
+
+    return `${cleanBase}/${cleanEndpoint}?${searchParams.toString()}`;
   }
 
   private async request<T = unknown>(
