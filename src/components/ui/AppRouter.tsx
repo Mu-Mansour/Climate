@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../customComponents/Layout";
+import { Toaster } from "sonner";
 
 const router = createBrowserRouter([
   {
@@ -11,14 +12,9 @@ const router = createBrowserRouter([
         lazy: () => import("../../Pages/Dashboard"),
       },
       {
-        path: "city/:name",
+        path: "city/:cityName",
         index: true,
         lazy: () => import("../../Pages/CityPage"),
-      },
-      {
-        path: "city/:name/aww",
-        index: true,
-        lazy: () => import("../../Pages/lazyPage"),
       },
     ],
   },
@@ -27,6 +23,7 @@ export const AppRouter = () => {
   return (
     <>
       <RouterProvider router={router} />
+      <Toaster richColors />
     </>
   );
 };
