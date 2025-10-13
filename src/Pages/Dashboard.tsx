@@ -1,4 +1,6 @@
+import { ContactSection } from "@/components/customComponents/ContactSection";
 import { CurrentWeather } from "@/components/customComponents/CurrentWeather";
+import { FavoriteCities } from "@/components/customComponents/FavoriteCities";
 import { HourlyTemperature } from "@/components/customComponents/HourlyTemperature";
 import { WeatherDetails } from "@/components/customComponents/WeatherDetails";
 import { WeatherForecast } from "@/components/customComponents/WeatherForecast";
@@ -94,7 +96,7 @@ export function Component() {
 
   return (
     <div className='space-y-4'>
-      {/* <FavoriteCities /> */}
+      <FavoriteCities />
       <div className='flex items-center justify-between'>
         <h1 className='text-xl font-bold tracking-tight'>My Location</h1>
         <Button
@@ -119,10 +121,12 @@ export function Component() {
           />
           <HourlyTemperature data={forecastQuery.data} />
         </div>
-
+        <div>
+          <WeatherForecast data={forecastQuery.data} />
+        </div>
         <div className='grid gap-6 md:grid-cols-2 items-start'>
           <WeatherDetails data={weatherQuery.data} />
-          <WeatherForecast data={forecastQuery.data} />
+          <ContactSection />
         </div>
       </div>
     </div>
