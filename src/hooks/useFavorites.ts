@@ -1,4 +1,3 @@
-// src/hooks/use-favorites.ts
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useLocalStorage } from "./useLocalStorage";
 

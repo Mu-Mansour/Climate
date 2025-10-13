@@ -11,7 +11,7 @@ const Layout = () => {
       <footer className='border-t backdrop-blur py-8 supports-[backdrop-filter]:bg-background/60'>
         <div className='container mx-auto px-4 text-center text-gray-600'>
           <div className='footer'>
-            &copy; 2025 <span>Template</span> All Right Reserved
+            &copy; 2025 <span>TAQSI</span> All Right Reserved
           </div>
         </div>
       </footer>
