@@ -23,7 +23,6 @@ export function useFavorites() {
     queryKey: ["favorites"],
     queryFn: () => favorites,
     initialData: favorites,
-    staleTime: Infinity,
   });
 
   const addFavorite = useMutation({
