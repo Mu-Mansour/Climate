@@ -1,4 +1,3 @@
-import "./App.css";
 import { AppRouter } from "./components/ui/AppRouter";
 import { ThemeProvider } from "./context/theme-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
