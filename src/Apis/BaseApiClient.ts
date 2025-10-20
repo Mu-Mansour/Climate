@@ -9,8 +9,9 @@ interface ApiOptions {
 
 export class DynamicAPI {
   private BASE_API_CONFIG = {
-    // BASE_URL: "https://api.openweathermap.org/data/2.5",for now
-    BASE_URL: "/api-weather/data/2.5",
+    BASE_URL: import.meta.env.PROD
+      ? "https://api.openweathermap.org/data/2.5"
+      : "/api-weather/data/2.5",
     DEFAULT_PARAMS: {
       units: "metric",
       appid: import.meta.env.VITE_WEATHER_API_KEY,
@@ -25,7 +26,6 @@ export class DynamicAPI {
     const searchParams = new URLSearchParams(effectiveParams);
     const cleanBase = baseUrl.replace(/\/+$/, "");
     const cleanEndpoint = endpoint.replace(/^\/+/, "");
-    // return `${baseUrl}${endpoint}?${searchParams.toString()}`; for now
 
     return `${cleanBase}/${cleanEndpoint}?${searchParams.toString()}`;
   }
@@ -41,7 +41,7 @@ export class DynamicAPI {
     const fetchOptions: RequestInit = {
       method,
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         ...headers,
       },
     };

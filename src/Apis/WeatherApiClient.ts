@@ -5,8 +5,8 @@ import type {
   GeocodingResponse,
   WeatherData,
 } from "./types";
-const GEO_API = "/api-weather/geo/1.0";
-// const GEO_API = "https://api.openweathermap.org/geo/1.0"; for now
+// const GEO_API = "/api-weather/geo/1.0";
+const GEO_API = "https://api.openweathermap.org/geo/1.0";
 
 class WeatherAPI extends DynamicAPI {
   async getCurrentWeather({ lat, lon }: Coordinates): Promise<WeatherData> {
